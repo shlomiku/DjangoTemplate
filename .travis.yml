@@ -1,4 +1,6 @@
 sudo: true
+env:
+  DOCKER_COMPOSE_VERSION: 1.7.0
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
@@ -9,9 +11,20 @@ before_install:
 language: python
 python:
   - "2.7"
+services:
+  - docker
 before_install:
   - chmod +x ./utility/install_python_dependencies.sh
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 install:
   - ./utility/install_python_dependencies.sh
+  - docker-compose -f dev.yml build
+  - docker-compose -f dev.yml up
+
+
 script:
-  - py.test
+  - py.test deliverance.tests
+
