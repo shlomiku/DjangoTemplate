@@ -9,4 +9,4 @@ before_install:
 language: python
 python:
   - "2.7"
-install: ./utility/install_python_dependencies.sh
+install: sudo ./utility/install_python_dependencies.sh
