@@ -14,4 +14,4 @@ before_install:
 install:
   - ./utility/install_python_dependencies.sh
 script:
-  - echo "PASS"
+  - py.test
