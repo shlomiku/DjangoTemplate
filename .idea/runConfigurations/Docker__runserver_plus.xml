@@ -1,0 +1,53 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Docker: runserver_plus" type="Python.DjangoServer" factoryName="Django server" singleton="true">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="DJANGO_SETTINGS_MODULE" value="config.settings.local" />
+      <env name="PYTHONUNBUFFERED" value="1" />
+    </envs>
+    <option name="SDK_HOME" value="" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="IS_MODULE_SDK" value="true" />
+    <option name="ADD_CONTENT_ROOTS" value="true" />
+    <option name="ADD_SOURCE_ROOTS" value="true" />
+    <module name="deliverance" />
+    <EXTENSION ID="DockerContainerSettingsRunConfigurationExtension">
+      <option name="envVars">
+        <list />
+      </option>
+      <option name="extraHosts">
+        <list />
+      </option>
+      <option name="links">
+        <list />
+      </option>
+      <option name="networkDisabled" value="false" />
+      <option name="networkMode" value="deliverance_default" />
+      <option name="portBindings">
+        <list />
+      </option>
+      <option name="publishAllPorts" value="false" />
+      <option name="volumeBindings">
+        <list />
+      </option>
+    </EXTENSION>
+    <PathMappingSettings>
+      <option name="pathMappings">
+        <list>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/opt/project" />
+        </list>
+      </option>
+    </PathMappingSettings>
+    <option name="launchJavascriptDebuger" value="false" />
+    <option name="port" value="8000" />
+    <option name="host" value="0.0.0.0" />
+    <option name="additionalOptions" value="" />
+    <option name="browserUrl" value="" />
+    <option name="runTestServer" value="false" />
+    <option name="runNoReload" value="false" />
+    <option name="useCustomRunCommand" value="true" />
+    <option name="customRunCommand" value="runserver_plus" />
+    <method />
+  </configuration>
+</component>
