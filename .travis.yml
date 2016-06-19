@@ -21,6 +21,9 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - sudo apt-get remove --purge -y docker-engine
   - sudo apt-get --assume-yes install -y docker-engine # 1.11.2-0~trusty
+  - sudo ps -aux |grep post
+  - sudo netstat -an |grep LIST
+
 install:
   - ./utility/install_python_dependencies.sh
   - docker-compose -f dev.yml build
