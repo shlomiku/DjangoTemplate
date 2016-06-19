@@ -20,7 +20,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - sudo apt-get remove --purge -y docker-engine
-  - sudo apt-get --assume-yes install -y --only-upgrade docker-engine=1.10.0
+  - sudo apt-get --assume-yes install -y --only-upgrade docker-engine=v1.10.3
 install:
   - ./utility/install_python_dependencies.sh
   - docker-compose -f dev.yml build
