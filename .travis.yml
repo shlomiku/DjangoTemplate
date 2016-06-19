@@ -1,6 +1,6 @@
 sudo: true
 env:
-  DOCKER_COMPOSE_VERSION: 1.6.2
+  DOCKER_COMPOSE_VERSION: 1.7.2
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
@@ -19,7 +19,8 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-#  - sudo apt-get --assume-yes install -y --only-upgrade docker-engine
+  - sudo apt-get remove --purge docker-engine
+  - sudo apt-get --assume-yes install -y --only-upgrade docker-engine
 install:
   - ./utility/install_python_dependencies.sh
   - docker-compose -f dev.yml build
