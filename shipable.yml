@@ -1,0 +1,32 @@
+sudo: true
+env:
+  DOCKER_COMPOSE_VERSION: 1.7.1
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
+  - sudo apt-get install -qq libtiff4-dev libjpeg8-dev libfreetype6-dev liblcms1-dev libwebp-dev
+  - sudo apt-get install -qq graphviz-dev python-setuptools python3-dev python-virtualenv python-pip
+  - sudo apt-get install -qq firefox automake libtool libreadline6 libreadline6-dev libreadline-dev
+  - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
+language: python
+python:
+  - "2.7"
+services:
+  - docker
+before_install:
+  - chmod +x ./utility/install_python_dependencies.sh
+#  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - sudo apt-get remove --purge -y docker-engine
+  - sudo apt-get --assume-yes install -y docker-engine # 1.11.2-0~trusty
+install:
+  - ./utility/install_python_dependencies.sh
+  - docker-compose -f dev.yml build
+  - docker-compose -f dev.yml up
+
+
+script:
+  - py.test deliverance.tests
+
