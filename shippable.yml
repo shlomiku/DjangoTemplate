@@ -23,10 +23,12 @@ before_install:
   - sudo apt-get remove --purge -y docker-engine
 install:
   - ./utility/install_python_dependencies.sh
+  - docker-compose -v
   - docker-compose -f dev.yml build
   - docker-compose -f dev.yml up
 
 
 script:
   - py.test deliverance.tests
+
 
