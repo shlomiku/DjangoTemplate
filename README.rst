@@ -1,7 +1,7 @@
-Deliverance 2.0
+Django Template
 ==============================
 
-Flytrex Deliverance Server 2.0
+A Django Docker Angular Pycharm Template
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
