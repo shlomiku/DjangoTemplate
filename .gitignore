@@ -50,6 +50,8 @@ htmlcov
 !.idea/webResources.xml
 !.idea/dataSources.local.xml
 !.idea/dataSources.xml
+# experimental - thie workspace.xml contains other running configurations I want all developers to have. got to make sure it won't fuck up other things.
+!.idea/workspace.xml
 
 
 # Vim
@@ -73,3 +75,21 @@ deliverance/media/
 # Hitch directory
 tests/.hitch
 
+# added from the Angular 2 boilerplate
+typings/**
+jspm_packages
+link-checker-results.txt
+**/*npm-debug.log.*
+*.js
+*.js.map
+e2e/**/*.js
+e2e/**/*.js.map
+_test-output
+_temp
+
+!**/*e2e-spec.js
+!karma*.js
+!protractor*.js
+!systemjs.config.js
+!typings/typings.d.ts
+!wallaby.js
