@@ -10,6 +10,20 @@ COPY ./compose/django/entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-WORKDIR /app
+# install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y nodejs
+RUN apt-get install -y build-essential
+
+# Requirements have to be pulled and installed here, otherwise caching won't work
+COPY ./requirements /requirements
+RUN pip install -r /requirements/local.txt
+
+WORKDIR /opt/project
+
+# install node packages
+RUN cd /opt/project
+COPY ./package.json package.json
+RUN npm install
 
 ENTRYPOINT ["/entrypoint.sh"]
