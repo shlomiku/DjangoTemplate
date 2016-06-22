@@ -12,7 +12,23 @@
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
     <![endif]-->
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="{% static "core-js/client/shim.min.js" %}"></script>
+    <script src="{% static "zone.js/dist/zone.js" %}"></script>
+    <script src="{% static "reflect-metadata/Reflect.js" %}"></script>
+    <script src="{% static "systemjs/dist/system.src.js" %}"></script>
+
+    <script src="{% static "js/systemjs.config.js" %}"></script>
+    <script src="{% static "ts/main.js" %}"></script>
+{#    <script src="{% static "js/wallaby.js" %}"></script>#}
+{#    <script src="{% static "js/karma-test-shim.js" %}"></script>#}
+{#    <script src="{% static "js/karma.conf.js" %}"></script>#}
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
 
     {% block css %}
     <!-- Latest compiled and minified CSS -->
@@ -80,6 +96,7 @@
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
+    <my-app>Loading...</my-app>
 
     </div> <!-- /container -->
 
@@ -105,4 +122,4 @@
     {% endblock javascript %}
   </body>
 </html>
- 
+
