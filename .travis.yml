@@ -31,7 +31,7 @@ install:
   - sudo ps -aux |grep post
   - sudo netstat -an |grep LIST
   - sudo netstat -tulpn
-  - sudo killall postgresqld
+  - sudo pg_ctl stop
   - sudo netstat -tulpn
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
