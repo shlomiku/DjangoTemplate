@@ -33,5 +33,5 @@ install:
 
 
 script:
-  - docker run deliverance_pycharm python manage.py test
+  - docker run --net="deliverance_default" deliverance_pycharm python manage.py test
 
