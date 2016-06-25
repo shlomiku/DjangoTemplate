@@ -45,14 +45,14 @@ services:
       - POSTGRES_USER=deliverance
     volumes:
       - .:/opt/project
-    links:
+#    links:
 #      - postgres
-      - mailhog
+#      - mailhog
 
 
 
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - "8025:8025"
+#  mailhog:
+#    image: mailhog/mailhog
+#    ports:
+#      - "8025:8025"
 
