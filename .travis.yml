@@ -21,8 +21,6 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - sudo apt-get remove --purge -y docker-engine
   - sudo apt-get --assume-yes install -y docker-engine # 1.11.2-0~trusty
-  - sudo ps -aux |grep post
-  - sudo netstat -an |grep LIST
 
 install:
   - ./utility/install_python_dependencies.sh
@@ -30,7 +28,9 @@ install:
   - docker-compose -f test.yml up
   - docker ps
   - docker network ls
-  - netstat -tulpn
+  - sudo ps -aux |grep post
+  - sudo netstat -an |grep LIST
+  - sudo netstat -tulpn
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
 
