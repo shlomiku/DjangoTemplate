@@ -24,15 +24,15 @@ before_install:
 
 install:
   - ./utility/install_python_dependencies.sh
-  - docker-compose -f test.yml build
-  - docker-compose -f test.yml up
-  - docker ps
-  - docker network ls
   - sudo ps -aux |grep post
   - sudo netstat -an |grep LIST
   - sudo netstat -tulpn
   - sudo kill `ps -eo pid,command | grep postgres | grep -v grep | awk '{print $1}'`
   - sudo netstat -tulpn
+  - docker-compose -f test.yml build
+  - docker-compose -f test.yml up
+  - docker ps
+  - docker network ls
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
 
