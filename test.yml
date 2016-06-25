@@ -38,7 +38,7 @@ services:
   pycharm:
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile-dev
+      dockerfile: ./compose/django/Dockerfile-test
 #    depends_on:
 #      - postgres
     environment:

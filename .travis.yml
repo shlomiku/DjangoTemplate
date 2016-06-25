@@ -28,8 +28,10 @@ install:
   - ./utility/install_python_dependencies.sh
   - docker-compose -f test.yml build
   - docker-compose -f test.yml up
+  - docker run --net="deliverance_default" deliverance_pycharm python manage.py makemigrations
+  - docker run --net="deliverance_default" deliverance_pycharm python manage.py migrate
 
 
 script:
-  - py.test deliverance.tests
+  - docker run deliverance_pycharm python manage.py test
 
