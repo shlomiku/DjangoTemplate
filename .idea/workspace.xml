@@ -4,15 +4,10 @@
     <bookmark url="file://$USER_HOME$/.PyCharm2016.2/system/remote_sources/1034364179/-183260405/django/contrib/staticfiles/finders.py" description="find static files" line="246" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ea3403-48ca-42d1-b0cd-5a67de29baf9" name="Default" comment="forgot to remove dependency">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compose/nginx/Dockerfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compose/nginx/configs/default.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compose/nginx/configs/nginx.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compose/nginx/docker-entrypoint.sh" />
+    <list default="true" id="d9ea3403-48ca-42d1-b0cd-5a67de29baf9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deliverance/static/js/project.js" afterPath="$PROJECT_DIR$/deliverance/static/js/project.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deliverance/users/tests/test_views.py" afterPath="$PROJECT_DIR$/deliverance/users/tests/test_views.py" />
     </list>
     <ignored path="deliverance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,21 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <file leaf-file-name="test.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+            <state relative-caret-position="796">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.yml">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            <state relative-caret-position="266">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,8 +133,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+            <state relative-caret-position="357">
+              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -170,7 +165,6 @@
         <option value="$PROJECT_DIR$/shipable.yml" />
         <option value="$PROJECT_DIR$/shippable.yml" />
         <option value="$PROJECT_DIR$/.dockerignore" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/compose/django/Dockerfile-dev" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/npm-debug.log" />
@@ -192,6 +186,7 @@
         <option value="$PROJECT_DIR$/compose/nginx/Dockerfile" />
         <option value="$PROJECT_DIR$/deliverance/users/tests/test_views.py" />
         <option value="$PROJECT_DIR$/test.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
@@ -1000,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466843588481</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="different docker container name">
+      <created>1466846310299</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1466846310299</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1037,11 +1039,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1278" height="982" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29446408" sideWeight="0.5147783" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29446408" sideWeight="0.48522168" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29446408" sideWeight="0.48522168" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30859834" sideWeight="0.45238096" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1074,7 +1076,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="need to upgrade docker binary" />
     <MESSAGE value="wrong upgrade syntax" />
     <MESSAGE value="auto confirm installation" />
     <MESSAGE value="still gets stuck during docker upgrade" />
@@ -1099,7 +1100,8 @@
     <MESSAGE value="docker configurations for travis testing" />
     <MESSAGE value="test running" />
     <MESSAGE value="don't need mailhog for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="don't need mailhog for testing" />
+    <MESSAGE value="different docker container name" />
+    <option name="LAST_COMMIT_MESSAGE" value="different docker container name" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -1135,7 +1137,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/app.component.spec.ts" />
     <entry file="file://$USER_HOME$/.PyCharm2016.2/system/remote_sources/1034364179/249572967/importlib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1489,18 +1490,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        <state relative-caret-position="796">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        <state relative-caret-position="357">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
           <folding />
         </state>
       </provider>
