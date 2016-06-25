@@ -46,7 +46,7 @@ services:
     volumes:
       - .:/opt/project
     links:
-      - postgres
+#      - postgres
       - mailhog
 
 
