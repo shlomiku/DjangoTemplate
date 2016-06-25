@@ -30,10 +30,10 @@ install:
   - docker-compose -f test.yml up
   - docker ps
   - docker network ls
-  - docker run --net="deliverance_default" djangotemplate_pycharm python manage.py makemigrations
-  - docker run --net="deliverance_default" djangotemplate_pycharm python manage.py migrate
+  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
+  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
 
 
 script:
-  - docker run --net="deliverance_default" djangotemplate_pycharm python manage.py test
+  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
 
