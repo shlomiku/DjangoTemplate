@@ -26,8 +26,8 @@ before_install:
 
 install:
   - ./utility/install_python_dependencies.sh
-  - docker-compose -f dev.yml build
-  - docker-compose -f dev.yml up
+  - docker-compose -f test.yml build
+  - docker-compose -f test.yml up
 
 
 script:
