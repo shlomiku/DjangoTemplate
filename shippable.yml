@@ -11,39 +11,50 @@ before_install:
 language: python
 python:
   - "2.7"
-services:
-  - docker
-before_install:
-  - chmod +x ./utility/install_python_dependencies.sh
-#  - sudo rm /usr/local/bin/docker-compose
-  - sudo mv /var/lib/apt/lists /var/lib/apt/lists.old
-  - sudo mkdir -p /var/lib/apt/lists/partial
-  - sudo apt-get update
-  - sudo apt-get update
-  - sudo apt-get install -y docker-engine # 1.11.2-0~trusty
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - sudo apt-get remove --purge -y docker-engine
+#services:
+#  - docker
+#before_install:
+#  - chmod +x ./utility/install_python_dependencies.sh
+##  - sudo rm /usr/local/bin/docker-compose
+#  - sudo mv /var/lib/apt/lists /var/lib/apt/lists.old
+#  - sudo mkdir -p /var/lib/apt/lists/partial
+#  - sudo apt-get update
+#  - sudo apt-get update
+#  - sudo apt-get install -y docker-engine # 1.11.2-0~trusty
+#  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+#  - chmod +x docker-compose
+#  - sudo mv docker-compose /usr/local/bin
+#  - sudo apt-get remove --purge -y docker-engine
+
+build:
+  pre_ci:
+    - sudo pip install -U docker-compose
+    - docker-compose up -d
+    - docker ps
+    - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
+    - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
+  ci:
+    - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
+
 install:
-  - ./utility/install_python_dependencies.sh
-  - sudo ps -aux |grep post
-  - sudo netstat -an |grep LIST
-  - sudo netstat -tulpn
-  - sudo kill `ps -eo pid,command | grep postgres | grep -v grep | awk '{print $1}'`
-  - sudo netstat -tulpn
-  - docker-compose -f test.yml build
-  - docker-compose -f test.yml up -d
-  - docker ps
-  - docker network ls
-  - docker network inspect djangotemplate_default
-  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
-  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
+#  - ./utility/install_python_dependencies.sh
+#  - sudo ps -aux |grep post
+#  - sudo netstat -an |grep LIST
+#  - sudo netstat -tulpn
+#  - sudo kill `ps -eo pid,command | grep postgres | grep -v grep | awk '{print $1}'`
+#  - sudo netstat -tulpn
+#  - docker-compose -f test.yml build
+#  - docker-compose -f test.yml up -d
+#  - docker ps
+#  - docker network ls
+#  - docker network inspect djangotemplate_default
+#  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
+#  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
 #  - docker exec `docker ps |grep postgres|awk '{print $1}'` netstat -an
-  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
-  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
-
-
-script:
-  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
+#  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
+#  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
+#
+#
+#script:
+#  - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
 
