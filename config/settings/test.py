@@ -1,4 +1,5 @@
 from .common import *  # noqa
+from .local import SECRET_KEY
 
 INSTALLED_APPS += ('django_nose',)
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
@@ -17,3 +18,6 @@ NOSE_ARGS = [
 # In development, all tasks will be executed locally by blocking until the task returns
 CELERY_ALWAYS_EAGER = True
 ########## END CELERY
+
+
+
