@@ -29,7 +29,8 @@ python:
 build:
   pre_ci:
     - sudo pip install -U docker-compose
-    - docker-compose up -d
+    - docker-compose -f test.yml build
+    - docker-compose -f test.yml up -d
     - docker ps
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
