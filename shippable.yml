@@ -46,7 +46,7 @@ build:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
 #    - mkdir -p ~/shippable/testresults
   ci:
-    - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
+    - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test -k
 
 #install:
 #  - ./utility/install_python_dependencies.sh
