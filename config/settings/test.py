@@ -4,8 +4,8 @@ from .local import SECRET_KEY, CELERY_ALWAYS_EAGER, DEBUG
 INSTALLED_APPS += ('django_nose',)
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
-    '--with-coverage',  # activate coverage report
-    '--cover-package=users',
+    # '--with-coverage',  # activate coverage report
+    # '--cover-package=users',
     '--with-doctest',  # activate doctest: find and run docstests
     '--verbosity=2',   # verbose output
     '--with-xunit',    # enable XUnit plugin
