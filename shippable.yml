@@ -16,6 +16,9 @@ services:
 before_install:
   - chmod +x ./utility/install_python_dependencies.sh
 #  - sudo rm /usr/local/bin/docker-compose
+  - sudo mv /var/lib/apt/lists /var/lib/apt/lists.old
+  - sudo mkdir -p /var/lib/apt/lists/partial
+  - sudo apt-get update
   - sudo apt-get update
   - sudo apt-get install -y docker-engine # 1.11.2-0~trusty
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
