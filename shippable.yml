@@ -34,7 +34,8 @@ build:
 #    - sudo apt-get update
 #    - sudo apt-get upgrade docker-engine
 #    - docker --version
-    - sudo pip install -U docker-compose==1.5.2
+    - sudo pip install -U docker-compose
+#    - sudo pip install -U docker-compose==1.5.2
 #    - sudo pip install -U docker-engine
     - docker-compose -f test.yml build
     - docker-compose -f test.yml up -d
@@ -44,7 +45,7 @@ build:
   ci:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
 
-install:
+#install:
 #  - ./utility/install_python_dependencies.sh
 #  - sudo ps -aux |grep post
 #  - sudo netstat -an |grep LIST
