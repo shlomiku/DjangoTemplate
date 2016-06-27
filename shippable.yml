@@ -44,7 +44,7 @@ build:
     - docker ps
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
-    - mkdir -p shippable/testresults
+    - mkdir -p ~/shippable/testresults
   ci:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
 
