@@ -30,11 +30,11 @@ build:
   pre_ci:
     - sudo pip install -U pip
     - docker --version
-    - sudo echo "deb https://packages.docker.com/1.10/apt/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
-    - sudo apt-get update
-    - sudo apt-get upgrade docker-engine
-    - docker --version
-    - sudo pip install -U docker-compose
+#    - sudo echo "deb https://packages.docker.com/1.10/apt/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
+#    - sudo apt-get update
+#    - sudo apt-get upgrade docker-engine
+#    - docker --version
+    - sudo pip install -U docker-compose==1.5.2
 #    - sudo pip install -U docker-engine
     - docker-compose -f test.yml build
     - docker-compose -f test.yml up -d
