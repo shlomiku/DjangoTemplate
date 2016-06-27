@@ -9,7 +9,7 @@ NOSE_ARGS = [
     '--with-doctest',  # activate doctest: find and run docstests
     '--verbosity=2',   # verbose output
     '--with-xunit',    # enable XUnit plugin
-    '--xunit-file=~/shippable/testresults/nosetests.xml',  # the XUnit report file
+    '--xunit-file=shippable/testresults/nosetests.xml',  # the XUnit report file
     '--cover-xml',     # produle XML coverage info
     '--cover-xml-file=coverage.xml',  # the coverage info file
     # You may also specify the packages to be covered here
