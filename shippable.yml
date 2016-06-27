@@ -28,6 +28,7 @@ python:
 
 build:
   pre_ci:
+    - sudo pip install -U pip
     - sudo pip install -U docker-compose
     - sudo pip install -U docker-engine
     - docker-compose -f test.yml build
