@@ -34,6 +34,29 @@ services:
 #      - mailhog
 
 
+#  nginx:
+#    build: ./compose/nginx
+#    ports:
+#      - "0.0.0.0:80:80"
+
+  nginx:
+    build: ./compose/nginx
+    depends_on:
+      - pycharm
+    ports:
+      - "0.0.0.0:80:80"
+    environment:
+      - MY_DOMAIN_NAME=flytrex.com
+#    ports:
+#      - "0.0.0.0:80:80"
+#      - "0.0.0.0:443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+    links:
+      - pycharm
+    extra_hosts:
+      - "pycharm:172.21.0.4"
 
   pycharm:
     build:
