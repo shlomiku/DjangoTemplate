@@ -17,6 +17,7 @@ COPY configs/default.conf /etc/nginx/conf.d/default.conf
 
 # Allow us to customize the entrypoint of the image.
 COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Start nginx in the foreground to play nicely with Docker.

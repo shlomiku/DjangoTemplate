@@ -5,7 +5,7 @@ set -e
 
 # What is the backend's name and port? The backend should be the name of the
 # Docker image that is linked to nginx.
-PLACEHOLDER_BACKEND_NAME="dockerzon"
+PLACEHOLDER_BACKEND_NAME="pycharm"
 PLACEHOLDER_BACKEND_PORT="8000"
 
 # What should the virtualhost's name be? This is the server_name value and would
