@@ -34,9 +34,9 @@ install:
   - docker ps
   - docker network ls
   - docker network inspect djangotemplate_default
-  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
-  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
-  - docker exec `docker ps |grep postgres|awk '{print $1}'` netstat -an
+#  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
+#  - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
+#  - docker exec `docker ps |grep postgres|awk '{print $1}'` netstat -an
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
 
