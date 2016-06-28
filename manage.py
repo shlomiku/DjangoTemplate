@@ -7,6 +7,8 @@ if __name__ == '__main__':
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.test')
     else:
         # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
+        print "CONTINIOUS_INTEGRATION: "
+        print os.environ.get('CONTINIOUS_INTEGRATION', None)
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.test')
 
     from django.core.management import execute_from_command_line
