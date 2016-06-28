@@ -14,8 +14,8 @@ services:
       - postgres_backup_dev:/backups
     environment:
       - POSTGRES_USER=deliverance
-    ports:
-      - "5432:5432"
+#    ports:
+#      - "5432:5432"
 
 #  django:
 #    build:
