@@ -3,13 +3,9 @@ import os
 import sys
 
 if __name__ == '__main__':
-    if os.environ.get('CONTINIOUS_INTEGRATION', None):
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.test')
+    if os.environ.get('DEVELOPMENT_MODE', None):
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
     else:
-        # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
-        print "CONTINIOUS_INTEGRATION: "
-        print os.environ.get('CONTINIOUS_INTEGRATION', None)
-        print ", ".join(os.environ.keys())
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.test')
 
     from django.core.management import execute_from_command_line
