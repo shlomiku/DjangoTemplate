@@ -27,7 +27,7 @@ install:
   - sudo ps -aux |grep post
   - sudo netstat -an |grep LIST
   - sudo netstat -tulpn
-#  - sudo kill `ps -eo pid,command | grep postgres | grep -v grep | awk '{print $1}'`
+  - sudo kill `ps -eo pid,command | grep postgres | grep -v grep | awk '{print $1}'`
   - sudo netstat -tulpn
   - docker-compose -f test.yml build
   - docker-compose -f test.yml up -d
