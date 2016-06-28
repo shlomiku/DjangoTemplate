@@ -58,7 +58,7 @@ build:
   on_failure:
     - pwd
     - ls -l
-    - ls ~
+    - cd
     - sudo find . -name nosetests.xml
   after_failure:
     - cat /opt/project/shippable/testresults/nosetests.xml
