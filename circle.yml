@@ -14,9 +14,9 @@ dependencies:
      - docker-compose --version
      - docker-compose -f test.yml build
      - docker-compose -f test.yml up -d
-     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
-     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
-     - docker ps
+#     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
+#     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
+#     - docker ps
      - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
      - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
      - mkdir -p shippable/testresults
