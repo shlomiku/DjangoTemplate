@@ -38,6 +38,7 @@ install:
   - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
 #  - docker exec `docker ps |grep postgres|awk '{print $1}'` netstat -an
   - sudo mkdir -p /opt/project/shippable/testresults
+  - sudo touch /opt/project/shippable/testresults/nosetests.xml
   - sudo mkdir -p /opt/project/shippable/codecoverage
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
