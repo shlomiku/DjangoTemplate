@@ -10,6 +10,17 @@ machine:
 dependencies:
   pre:
      - docker --version
+     - sudo pip install -U docker-compose
+     - docker-compose --version
+     - docker-compose -f test.yml build
+     - docker-compose -f test.yml up -d
+     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
+     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
+     - docker ps
+     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
+     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
+     - mkdir -p shippable/testresults
+     - mkdir -p shippable/codecoverage
 #     - sudo echo "deb https://packages.docker.com/1.10/apt/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
 #     - sudo apt-get update
 #     - sudo apt-get upgrade docker-engine
