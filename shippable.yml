@@ -55,6 +55,8 @@ build:
   on_success:
     - cat /opt/project/shippable/testresults/nosetests.xml
   on_failure:
+    - pwd
+    - ls -l
     - sudo find /opt/project -name nosetests.xml
   after_failure:
     - cat /opt/project/shippable/testresults/nosetests.xml
