@@ -2,16 +2,18 @@ machine:
   environment:
     PROJECT_NAME: deliverance
     CLUSTER_NAME: deliver
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
   services:
     - docker
 
 dependencies:
   pre:
      - docker --version
-     - sudo echo "deb https://packages.docker.com/1.10/apt/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
-     - sudo apt-get update
-     - sudo apt-get upgrade docker-engine
-     - docker --version
+#     - sudo echo "deb https://packages.docker.com/1.10/apt/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
+#     - sudo apt-get update
+#     - sudo apt-get upgrade docker-engine
+#     - docker --version
 #    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
 #    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
 #    - echo $ACCT_AUTH | base64 --decode -i > ${HOME}/account-auth.json
