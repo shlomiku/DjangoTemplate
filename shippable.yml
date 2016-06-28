@@ -44,7 +44,8 @@ build:
     - docker ps
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
-    - mkdir -p ~/shippable/testresults
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
   ci:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test --keepdb
     - cat /opt/project/shippable/testresults/nosetests.xml
@@ -57,7 +58,8 @@ build:
   on_failure:
     - pwd
     - ls -l
-    - sudo find /opt/project -name nosetests.xml
+    - ls ~
+    - sudo find . -name nosetests.xml
   after_failure:
     - cat /opt/project/shippable/testresults/nosetests.xml
 #install:
