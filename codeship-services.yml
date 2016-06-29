@@ -1,0 +1,25 @@
+
+postgres:
+  build:
+    path: ./compose/postgres
+    dockerfile_path: Dockerfile
+  volumes:
+    - /var/lib/postgresql/data
+    - /backups
+  environment:
+    - POSTGRES_USER=deliverance
+
+
+
+pycharm:
+  build:
+    path: .
+    dockerfile_path: ./compose/django/Dockerfile-test
+  depends_on:
+    - postgres
+  environment:
+    - POSTGRES_USER=deliverance
+  volumes:
+    - /opt/project
+  links:
+    - postgres

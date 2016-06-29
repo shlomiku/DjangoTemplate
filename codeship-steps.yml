@@ -1,0 +1,2 @@
+- service: pycharm
+  command: python manage.py test
