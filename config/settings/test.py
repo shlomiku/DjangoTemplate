@@ -8,6 +8,7 @@ NOSE_ARGS = [
     '--cover-package=deliverance.users',
     '--with-doctest',  # activate doctest: find and run docstests
     '--verbosity=3',   # verbose output
+    '--exclude-dir=./config',   # verbose output
     '--exe',   #
     '--with-xunit',    # enable XUnit plugin
     '--xunit-file=shippable/testresults/nosetests.xml',  # the XUnit report file
