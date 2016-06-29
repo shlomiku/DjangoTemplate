@@ -48,7 +48,7 @@ build:
     - mkdir -p shippable/codecoverage
   ci:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test --keepdb
-    - cat /opt/project/shippable/testresults/nosetests.xml
+    #- cat /opt/project/shippable/testresults/nosetests.xml
   post_ci:
     - cat /opt/project/shippable/testresults/nosetests.xml
   after_success:
