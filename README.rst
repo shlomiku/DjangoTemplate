@@ -13,7 +13,9 @@ A Django Docker Angular Pycharm Template with CI on, Travis CI, CircleCI, Codesh
     :target: https://circleci.com/gh/shlomikushchi/DjangoTemplate/tree/master
 .. image:: https://api.shippable.com/projects/576501402a8192902e242801/badge?branch=master
      :target: https://api.shippable.com
-     
+.. image:: https://codeship.com/projects/b4fda780-1864-0134-5717-2e1253fb37a6/status?branch=master
+     :target: https://codeship.com/projects/158677
+          
      
 
 
