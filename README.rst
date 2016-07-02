@@ -1,7 +1,7 @@
 Django Template
 ==============================
 
-A Django Docker Angular Pycharm Template
+A Django Docker Angular Pycharm Template with CI on, Travis CI, CircleCI, Codeship and shippable
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
