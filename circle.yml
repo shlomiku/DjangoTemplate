@@ -47,6 +47,8 @@ test:
   override:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
   post:
+    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name nosetests.xml |grep /opt/project/nosetests.xml` .
+    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name coverage.xml |grep /opt/project/coverage.xml` .
     - pip install codecov && codecov
     - bash <(curl -s https://codecov.io/bash)
 

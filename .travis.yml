@@ -48,6 +48,8 @@ install:
 script:
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
 after_success:
+  - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name nosetests.xml |grep /opt/project/nosetests.xml` .
+  - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name coverage.xml |grep /opt/project/coverage.xml` .
   - bash <(curl -s https://codecov.io/bash)
   - codecov
 
