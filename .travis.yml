@@ -42,10 +42,12 @@ install:
   - sudo mkdir -p /opt/project/shippable/codecoverage
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
+  - pip install codecov
 
 
 script:
   - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - codecov
 

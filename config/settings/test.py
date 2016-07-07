@@ -11,9 +11,9 @@ NOSE_ARGS = [
     '--exclude-dir=./config',   # verbose output
     '--exe',   #
     '--with-xunit',    # enable XUnit plugin
-    '--xunit-file=shippable/testresults/nosetests.xml',  # the XUnit report file
+    '--xunit-file=nosetests.xml',  # the XUnit report file
     '--cover-xml',     # produle XML coverage info
-    '--cover-xml-file=shippable/codecoverage/coverage.xml',  # the coverage info file
+    '--cover-xml-file=coverage.xml',  # the coverage info file
     # You may also specify the packages to be covered here
     # '--cover-package=blog,examples'
 ]
