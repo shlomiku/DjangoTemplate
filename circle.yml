@@ -46,6 +46,8 @@ dependencies:
 test:
   override:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
+  post:
+    - bash <(curl -s https://codecov.io/bash) 
 
 #deployment:
 #  prod:
