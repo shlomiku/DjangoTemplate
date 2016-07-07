@@ -48,21 +48,21 @@ build:
     - mkdir -p shippable/codecoverage
   ci:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test --keepdb
-    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name nosetests.xml |grep /opt/project/nosetests.xml` .
-    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name coverage.xml |grep /opt/project/coverage.xml` .
+    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name nosetests.xml |grep /opt/project/nosetests.xml` ./shippable/testresults/
+    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name coverage.xml |grep /opt/project/coverage.xml` ./shippable/codecoverage/
   post_ci:
     - cat /opt/project/shippable/testresults/nosetests.xml
-  after_success:
-    - bash <(curl -s https://codecov.io/bash)
-  on_success:
-    - bash <(curl -s https://codecov.io/bash)
-  on_failure:
-    - pwd
-    - ls -l
-    - cd
-    - sudo find . -name nosetests.xml
-  after_failure:
-    - cat /opt/project/shippable/testresults/nosetests.xml
+#  after_success:
+#    - bash <(curl -s https://codecov.io/bash)
+#  on_success:
+#    - bash <(curl -s https://codecov.io/bash)
+#  on_failure:
+#    - pwd
+#    - ls -l
+#    - cd
+#    - sudo find . -name nosetests.xml
+#  after_failure:
+#    - cat /opt/project/shippable/testresults/nosetests.xml
 #install:
 #  - ./utility/install_python_dependencies.sh
 #  - sudo ps -aux |grep post
