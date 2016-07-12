@@ -1,0 +1,27 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /web
+permissions:
+  - object: .
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  ApplicationStop:
+    - location: deploy_scripts/stop_application.sh
+      runas: ubuntu
+#    - location: deploy_scripts/clear_docker_images.sh
+    - location: deploy_scripts/clean_old_deployments.sh
+      runas: ubuntu
+  AfterInstall:
+    - location: deploy_scripts/build_docker.sh
+      runas: ubuntu
+  ApplicationStart:
+    - location: deploy_scripts/start_server.sh
+#      timeout: 60*15 # 15 minutes is a decent time frame
+      runas: ubuntu
+#  ValidateService:
+#    - location: deploy_scripts/MonitorService.sh
+#      timeout: 3600
+#      runas: codedeployuser

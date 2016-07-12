@@ -14,46 +14,35 @@ dependencies:
      - docker-compose --version
      - docker-compose -f test.yml build
      - docker-compose -f test.yml up -d
+     - python deploy_scripts/fix_circleci_postgres_bug.py
 #     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get update
 #     - docker exec `docker ps |grep postgres|awk '{print $1}'` apt-get install -y net-tools
 #     - docker ps
      - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py makemigrations
      - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py migrate
-     - mkdir -p shippable/testresults
-     - mkdir -p shippable/codecoverage
-#     - sudo echo "deb https://packages.docker.com/1.10/apt/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
-#     - sudo apt-get update
-#     - sudo apt-get upgrade docker-engine
-#     - docker --version
-#    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
-#    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
-#    - echo $ACCT_AUTH | base64 --decode -i > ${HOME}/account-auth.json
-#    - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
-#    - sudo /opt/google-cloud-sdk/bin/gcloud config set project $PROJECT_NAME
-#    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet config set container/cluster $CLUSTER_NAME
-#    # Reading the zone from the env var is not working so we set it here
-#    - sudo /opt/google-cloud-sdk/bin/gcloud config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
-#    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME
-#    - docker build -t us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 .
-#    # Using a separate tag command until Docker 1.10 is available on CircleCI, then we can use two tags in the build command above
-#    - docker tag us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 us.gcr.io/${PROJECT_NAME}/hello:latest
-
-#test:
-#  post:
-#    - docker run -d -p 3000:3000 -e "SECRET_KEY_BASE=abcd1234" us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1; sleep 10
-#    - curl --retry 10 --retry-delay 5 -v http://localhost:3000
+     - mkdir -p $CIRCLE_TEST_REPORTS/django
 
 test:
   override:
     - docker run --net="djangotemplate_default" djangotemplate_pycharm python manage.py test
   post:
-    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name nosetests.xml |grep /opt/project/nosetests.xml` .
-    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name coverage.xml |grep /opt/project/coverage.xml` .
+    - python deploy_scripts/clear_old_s3_binaries.py
+    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name nosetests.xml |grep /opt/project/nosetests.xml` $CIRCLE_TEST_REPORTS/django/
+    - sudo cp `sudo find /var/lib/docker/btrfs/subvolumes/ -name coverage.xml |grep /opt/project/coverage.xml` $CIRCLE_TEST_REPORTS/django/
     - pip install codecov && codecov
     - bash <(curl -s https://codecov.io/bash)
 
-#deployment:
-#  prod:
-#    branch: master
-#    commands:
-#      - ./deploy.sh
+deployment:
+  staging:
+    branch: master
+    codedeploy:
+      my_app_name:
+        application_root: /
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: circleci-unique-bucket
+            key_pattern: my_app_name-{SHORT_COMMIT}
+        region: us-west-2
+        deployment_group: my-group
+        deployment_config: CodeDeployDefault.AllAtOnce
