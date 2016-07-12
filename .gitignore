@@ -51,7 +51,7 @@ htmlcov
 !.idea/dataSources.local.xml
 !.idea/dataSources.xml
 # experimental - thie workspace.xml contains other running configurations I want all developers to have. got to make sure it won't fuck up other things.
-!.idea/workspace.xml
+#!.idea/workspace.xml
 
 
 # Vim
